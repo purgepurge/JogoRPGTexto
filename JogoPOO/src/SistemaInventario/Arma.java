@@ -5,15 +5,13 @@ public class Arma extends Item{
 	//atributos
 	
 	public int dano;
-	public String alcance;
 	
 	//construtor
 	
-	public Arma(String nome_Item, String descricao_Item, int dano, String alcance) {
+	public Arma(String nome_Item, String descricao_Item, int dano) {
 		nome_Item = this.nome_Item;
 		descricao_Item = this.descricao_Item;
 		dano = this.dano;
-		alcance = this.alcance;
 	}
 	
 	public Arma() {}
@@ -28,13 +26,7 @@ public class Arma extends Item{
 		this.dano = dano;
 	}
 
-	public String getAlcance() {
-		return alcance;
-	}
-
-	public void setAlcance(String alcance) {
-		this.alcance = alcance;
-	}
+	
 	
 	//metodo
 

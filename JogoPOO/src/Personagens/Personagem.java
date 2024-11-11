@@ -1,5 +1,8 @@
 package Personagens;
 
+import java.util.Scanner;
+
+import SistemaInventario.Arma;
 import SistemaInventario.Inventario;
 import SistemaInventario.Pocao;
 
@@ -13,6 +16,9 @@ public abstract class Personagem {
 	public int vidamax_Personagem;//define a vida maxima do personagem
 	public Inventario[] inventario_Personagem = new Inventario[20]; // inventorio do personagem
 	public int nivel_Personagem;// nivel do personagem
+	public Arma arma = new Arma("Arma Inicial","Arma básica, utilizada pelos membros de uma guilda de classe", 3);
+	public Scanner scanner;
+	
 	
 	
 	//construtores
@@ -86,6 +92,10 @@ public abstract class Personagem {
 			System.out.println(item);
 		}
 	}
+
+	public abstract void listarMagias();
+
+	public abstract void causarDano();
 
 	
 	

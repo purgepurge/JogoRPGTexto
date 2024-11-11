@@ -1,5 +1,7 @@
 package Personagens;
 
+import java.util.Scanner;
+
 import SistemaInventario.Arma;
 import SistemaInventario.Inventario;
 
@@ -11,6 +13,7 @@ public class Mago extends Personagem {
 		vidamax_Personagem = this.vidamax_Personagem;
 		inventario_Personagem = this.inventario_Personagem;
 		nivel_Personagem = this.nivel_Personagem;
+		this.scanner = new Scanner(System.in);
 	}
 	
 	public static void usarBolaDeFogo(Arma arma) {
@@ -23,11 +26,31 @@ public class Mago extends Personagem {
 		int escudoArcano = (1/4) * vidamax_Personagem;
 		System.out.println("Você conjura um escudo arcano, sua vida atual: "+vida_Personagem+" e a quantidade de escudo: "+escudoArcano);
 
+	}
+	
+	public void listarMagias() {
+		System.out.println("Lista de magias");
+		System.out.println("1 - Bola de Fogo");
+		System.out.println("2 - Escudo Arcano");
+		System.out.println("qual magia você quer usar?");
+		int escolhaMagia = scanner.nextInt();
+		if (escolhaMagia == 1) {
+			usarBolaDeFogo(null);
+		} else {
+			usarEscudoArcano();
 		}
+	
+	}
 	
 
 	@Override
 	public void usarMagia() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void causarDano() {
 		// TODO Auto-generated method stub
 		
 	}

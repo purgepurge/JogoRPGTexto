@@ -1,5 +1,7 @@
 package Personagens;
 
+import java.util.Scanner;
+
 import SistemaInventario.Arma;
 import SistemaInventario.Armadura;
 import SistemaInventario.Inventario;
@@ -12,6 +14,7 @@ public class Ladino extends Personagem{
 		vidamax_Personagem = this.vidamax_Personagem;
 		inventario_Personagem = this.inventario_Personagem;
 		nivel_Personagem = this.nivel_Personagem;
+		this.scanner = new Scanner(System.in);
 	}
 	
 	
@@ -25,9 +28,29 @@ public class Ladino extends Personagem{
 		System.out.println("Você utiliza da sua agilidade e seus reflexos aguçados para aumentar suas chance de esquivar, sua defesa atual: " + armadura.defesa);
 	}
 
-
+	public void listarMagias() {
+		System.out.println("Lista de magias");
+		System.out.println("1 - Golpe das Sombras");
+		System.out.println("2 - Evasão");
+		System.out.println("qual magia você quer usar?");
+		int escolhaMagia = scanner.nextInt();
+		if (escolhaMagia == 1) {
+			usarGolpeDasSombras(null);
+		} else {
+			usarEvasao(null);
+		}
+	}
+	
+	
 	@Override
 	public void usarMagia() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void causarDano() {
 		// TODO Auto-generated method stub
 		
 	}

@@ -38,6 +38,18 @@ public class Inimigo extends Personagem{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void listarMagias() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void causarDano() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 

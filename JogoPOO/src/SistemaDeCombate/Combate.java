@@ -50,15 +50,12 @@ public class Combate {
         return random.nextInt(max) + 1;
 	}
 	
-	public int causarDano() {
-		return 0;
 		
-	}
 	
 	public void iniciarCombate (Personagem jogador, Inimigo inimigo) {
 		System.out.println("O combate começa entre " + jogador.nome_Personagem + " e " + inimigo.nome_Personagem + "!");
 
-        while (jogador.vida_Personagem > 0 && inimigo.vida_Personagem > 0) {
+        while (jogador.vida_Personagem > 0 && jogador.vida_Personagem > 0) {
             // turno do jogador
             System.out.println("\n--- Turno de " + jogador.nome_Personagem + " ---");
             System.out.println("1. Atacar");
@@ -70,20 +67,31 @@ public class Combate {
             	int resultado = rolarDado(20);
             	if (resultado > inimigo.defesa_Inimigo) {
             		System.out.println("Você acertou o inimigo");
-            		causarDano();
+            		jogador.causarDano();
             	}else {
             		System.out.println("Você erra o ataque");
             	}
             } else if (escolha == 2) {
-            	
+            	jogador.listarMagias();	
             } else {
             	Pocao.beberPocao(jogador.vida_Personagem, jogador.vidamax_Personagem);
             }
-            if (inimigo.vida_Personagem <= 0) {
+            if (jogador.vida_Personagem <= 0) {
             	System.out.println(inimigo.nome_Personagem + " foi derrotado!");
             	break;
             }
             System.out.println("\n--- Turno de " + inimigo.nome_Personagem + " ---");
+            System.out.println("o "+inimigo.nome_Personagem+" prepara para atacar");
+            int resultado = rolarDado(20);
+            if (resultado > 2) {
+        		System.out.println("O Inimigo lhe acertou");
+        		inimigo.causarDano();
+        	}else {
+        		System.out.println("o Inimigo erra o ataque");
+        	}
+            
+            
+            
         }
 
 	}
