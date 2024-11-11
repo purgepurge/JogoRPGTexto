@@ -84,9 +84,9 @@ public abstract class Personagem {
 	public void listarInventario() {
 		for (Inventario item : inventario_Personagem ) {
 			System.out.println(item);
-			
 		}
 	}
+
 	
 	
 

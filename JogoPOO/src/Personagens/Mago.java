@@ -1,5 +1,6 @@
 package Personagens;
 
+import SistemaInventario.Arma;
 import SistemaInventario.Inventario;
 
 public class Mago extends Personagem {
@@ -12,13 +13,18 @@ public class Mago extends Personagem {
 		nivel_Personagem = this.nivel_Personagem;
 	}
 	
-	public static void usarBolaDeFogo() {
+	public static void usarBolaDeFogo(Arma arma) {
+		arma.dano = 2*arma.dano;
+		System.out.println("Você conjura uma bola de fogo utilizando seu foco arcano e a dispara em seu alvo, causando: "+arma.dano+" de dano");
 		
 	}
 	
-	public static void usarEscudoArcano() {
-		
-	}
+	public void usarEscudoArcano() {
+		int escudoArcano = (1/4) * vidamax_Personagem;
+		System.out.println("Você conjura um escudo arcano, sua vida atual: "+vida_Personagem+" e a quantidade de escudo: "+escudoArcano);
+
+		}
+	
 
 	@Override
 	public void usarMagia() {

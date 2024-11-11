@@ -1,5 +1,6 @@
 package Personagens;
 
+import SistemaInventario.Arma;
 import SistemaInventario.Armadura;
 import SistemaInventario.Inventario;
 
@@ -14,12 +15,14 @@ public class Ladino extends Personagem{
 	}
 	
 	
-	public static void usarGolpeDasSombras() {
-		
+	public static void usarGolpeDasSombras(Arma arma) {
+		arma.dano = 2*arma.dano;
+		System.out.println("você se cobre em sombras e desfere um ataque rápido e mortal nas costas do seu alvo causando: " + arma.dano + " de dano");
 	}
 	
 	public void usarEvasao(Armadura armadura) {
-		armadura.defesa = 2 * armadura.defesa;
+		armadura.defesa = (1/2) * armadura.defesa;
+		System.out.println("Você utiliza da sua agilidade e seus reflexos aguçados para aumentar suas chance de esquivar, sua defesa atual: " + armadura.defesa);
 	}
 
 
