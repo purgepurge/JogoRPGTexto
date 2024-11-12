@@ -6,13 +6,15 @@ public class Inimigo extends Personagem{
 	
 	public int forca_Inimigo;
 	public int defesa_Inimigo;
+	public String tipo_Inimigo;
 	
-	public Inimigo(String nome_Inimigo,int vida_Inimigo,int vidamax_Inimigo, int forca_Inimigo, int defesa_Inimigo) {
-		nome_Inimigo = this.nome_Personagem;
-		vida_Inimigo = this.vida_Personagem;
-		vidamax_Inimigo = this.vidamax_Personagem;
-		forca_Inimigo = this.forca_Inimigo;
-		defesa_Inimigo = this.defesa_Inimigo;
+	public Inimigo(String nome_Inimigo,int vida_Inimigo,int vidamax_Inimigo, int forca_Inimigo, int defesa_Inimigo,String tipo_Inimigo) {
+		this.nome_Personagem = nome_Inimigo;
+		this.vida_Personagem = vida_Inimigo;
+		this.vidamax_Personagem = vidamax_Inimigo;
+		this.forca_Inimigo = forca_Inimigo;
+		this.defesa_Inimigo = defesa_Inimigo;
+		this.tipo_Inimigo = tipo_Inimigo;
 	}
 	
 	public Inimigo() {}

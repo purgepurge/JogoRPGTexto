@@ -26,12 +26,12 @@ public abstract class Personagem {
 	//construtores
 	
 	public Personagem(String nome_Personagem, String classe_Personagem, int vida_Personagem,int vidamax_Personagem, Inventario inventario_Personagem, int nivel_Personagem) {
-		nome_Personagem = this.nome_Personagem;
-		classe_Personagem = this.classe_Personagem;
-		vida_Personagem = this.vida_Personagem;
-		vidamax_Personagem = this.vidamax_Personagem;
-		inventario_Personagem = this.inventario_Personagem;
-		nivel_Personagem = this.nivel_Personagem;
+		this.nome_Personagem = nome_Personagem;
+		this.classe_Personagem = classe_Personagem;
+		this.vida_Personagem = vida_Personagem;
+		this.vidamax_Personagem = vidamax_Personagem;
+		this.inventario_Personagem = inventario_Personagem;
+		this.nivel_Personagem = nivel_Personagem;
 	}
 	
 	public Personagem() {}
@@ -81,7 +81,7 @@ public abstract class Personagem {
 	}
 		
 	
-	public int testesAmbiente () {
+	public static int testesAmbiente () {
 		int resultadoTeste = (int) (Math.random() * 20) + 1; // Gera um número entre 1 e 20
 		return resultadoTeste;
 	}

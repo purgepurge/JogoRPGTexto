@@ -18,8 +18,8 @@ public class Combate {
 	//Construtores
 	
 	public Combate(Personagem jogador, Inimigo inimigo) {
-		jogador = this.jogador;
-		inimigo = this.inimigo;
+		this.jogador =jogador;
+		this.inimigo =inimigo;
 		this.scanner = new Scanner(System.in);
 	}
 	
