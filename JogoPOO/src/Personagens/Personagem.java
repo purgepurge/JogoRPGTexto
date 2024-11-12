@@ -93,9 +93,9 @@ public abstract class Personagem {
 		}
 	}
 
-	public abstract void listarMagias();
+	public abstract int listarMagias();
 
-	public abstract void causarDano();
+	
 
 	
 	

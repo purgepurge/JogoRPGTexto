@@ -2,8 +2,6 @@ package Personagens;
 
 import java.util.Scanner;
 
-import SistemaDeCombate.Inimigo;
-import SistemaInventario.Arma;
 import SistemaInventario.Inventario;
 
 public class Guerreiro extends Personagem{
@@ -29,7 +27,7 @@ public class Guerreiro extends Personagem{
 		
 	}
 	
-	public void listarMagias() {
+	public int listarMagias() {
 		System.out.println("Lista de magias");
 		System.out.println("1 - Respiro de Vida");
 		System.out.println("2 - Ataque Brutal");
@@ -39,10 +37,8 @@ public class Guerreiro extends Personagem{
 			usarRespiroDeVida();
 		} else {
 			usarAtaqueBrutal();
-			causarDano();
-			arma.dano = (1/2) * arma.dano;
-			
 		}
+		return escolhaMagia;
 	}
 	
 
@@ -50,13 +46,4 @@ public class Guerreiro extends Personagem{
 		// TODO Auto-generated method stub
 		
 	}
-
-
-	@Override
-	public void causarDano() {
-		
-		
-	}
-	
-
 }

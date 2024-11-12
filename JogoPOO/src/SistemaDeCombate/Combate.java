@@ -50,6 +50,9 @@ public class Combate {
         return random.nextInt(max) + 1;
 	}
 	
+	public void causarDano() {
+		inimigo.vida_Personagem -= jogador.arma.dano;
+	}
 		
 	
 	public void iniciarCombate (Personagem jogador, Inimigo inimigo) {
@@ -67,12 +70,16 @@ public class Combate {
             	int resultado = rolarDado(20);
             	if (resultado > inimigo.defesa_Inimigo) {
             		System.out.println("Você acertou o inimigo");
-            		jogador.causarDano();
+            		causarDano();
             	}else {
             		System.out.println("Você erra o ataque");
             	}
             } else if (escolha == 2) {
-            	jogador.listarMagias();	
+            	jogador.listarMagias();
+            	if (jogador.listarMagias() ==2) {
+            		causarDano();
+            		jogador.arma.dano = (1/2) * jogador.arma.dano;
+            	}
             } else {
             	Pocao.beberPocao(jogador.vida_Personagem, jogador.vidamax_Personagem);
             }
