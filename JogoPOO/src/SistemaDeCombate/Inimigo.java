@@ -33,23 +33,12 @@ public class Inimigo extends Personagem{
 		this.defesa_Inimigo = defesa_Inimigo;
 	}
 
-	@Override
-	public void usarMagia() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
-	public void listarMagias() {
-		// TODO Auto-generated method stub
-		
+	public int listarMagias() {
+		return forca_Inimigo;
 	}
-
-	@Override
-	public void causarDano() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 	
 

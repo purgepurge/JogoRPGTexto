@@ -6,7 +6,7 @@ import SistemaInventario.Inventario;
 
 public class Arqueiro extends Personagem {
 	
-	public Arqueiro(String nome_Personagem,int vida_Personagem,int vidamax_Personagem, Inventario[] inventario_Personagem,int nivel_Personagem){
+	public Arqueiro(String nome_Personagem,int vida_Personagem,int vidamax_Personagem, Inventario inventario_Personagem,int nivel_Personagem){
 		nome_Personagem = this.nome_Personagem;
 		vida_Personagem = this.vida_Personagem;
 		vidamax_Personagem = this.vidamax_Personagem;
@@ -17,7 +17,9 @@ public class Arqueiro extends Personagem {
 	
 	public Arqueiro() {}
 	
-	public static void usarMarcaDoCacador() {
+	public void usarTiroPreciso() {
+		arma.dano = 2* arma.dano;
+		System.out.println("Você puxa seu arco e concentra no ponto fraco do inimigo");
 		
 	} 
 	
@@ -28,29 +30,21 @@ public class Arqueiro extends Personagem {
 		}
 	}
 	
-	public void listarMagias() {
+	public int listarMagias() {
 		System.out.println("Lista de magias");
-		System.out.println("1 - Marca do cacador");
-		System.out.println("2 - Primeiros Socorros");
+		System.out.println("1 - Primeiros Socorros");
+		System.out.println("2 - Tiro Preciso");
 		System.out.println("qual magia você quer usar?");
 		int escolhaMagia = scanner.nextInt();
 		if (escolhaMagia == 1) {
-			usarMarcaDoCacador();
-		} else {
 			usarPrimeirosSocorros();
+		} else {
+			usarTiroPreciso();
 		}
+		return escolhaMagia;
 	}
 
-	@Override
-	public void usarMagia() {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void causarDano() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }

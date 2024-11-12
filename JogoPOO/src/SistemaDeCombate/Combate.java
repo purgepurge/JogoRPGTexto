@@ -50,8 +50,14 @@ public class Combate {
         return random.nextInt(max) + 1;
 	}
 	
-	public void causarDano() {
+	public void causarDanojogador() {
 		inimigo.vida_Personagem -= jogador.arma.dano;
+		System.out.println("Você causou: "+jogador.arma.dano+" de dano!");
+	}
+	
+	public void causarDanoinimigo() {
+		jogador.vida_Personagem -= inimigo.forca_Inimigo;
+		System.out.println("O "+inimigo.nome_Personagem+" causou: "+inimigo.forca_Inimigo+" de dano!");
 	}
 		
 	
@@ -70,14 +76,14 @@ public class Combate {
             	int resultado = rolarDado(20);
             	if (resultado > inimigo.defesa_Inimigo) {
             		System.out.println("Você acertou o inimigo");
-            		causarDano();
+            		causarDanojogador();
             	}else {
             		System.out.println("Você erra o ataque");
             	}
             } else if (escolha == 2) {
             	jogador.listarMagias();
             	if (jogador.listarMagias() ==2) {
-            		causarDano();
+            		causarDanojogador();
             		jogador.arma.dano = (1/2) * jogador.arma.dano;
             	}
             } else {
@@ -87,16 +93,20 @@ public class Combate {
             	System.out.println(inimigo.nome_Personagem + " foi derrotado!");
             	break;
             }
+            //turno do inimigo
             System.out.println("\n--- Turno de " + inimigo.nome_Personagem + " ---");
             System.out.println("o "+inimigo.nome_Personagem+" prepara para atacar");
             int resultado = rolarDado(20);
-            if (resultado > 2) {
-        		System.out.println("O Inimigo lhe acertou");
-        		inimigo.causarDano();
+            if (resultado > jogador.armadura.defesa) {
+        		System.out.println("O Inimigo acertou o ataque");
+        		causarDanoinimigo();
         	}else {
         		System.out.println("o Inimigo erra o ataque");
         	}
-            
+            if (jogador.vida_Personagem <= 0) {
+            	System.out.println(jogador.nome_Personagem+" foi derrotado!");
+            	break;
+            }
             
             
         }
