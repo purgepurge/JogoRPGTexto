@@ -8,8 +8,8 @@ public abstract class Item {
 	//construtor
 	
 	public Item(String nome_Item, String descricao_Item) {
-		nome_Item = this.nome_Item;
-		descricao_Item = this.descricao_Item;
+		this.nome_Item = nome_Item;
+		this.descricao_Item = descricao_Item;
 	}
 	
 	public Item() {}

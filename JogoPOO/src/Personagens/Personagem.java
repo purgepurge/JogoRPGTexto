@@ -17,8 +17,8 @@ public abstract class Personagem {
 	public int vidamax_Personagem;//define a vida maxima do personagem
 	public Inventario inventario_Personagem = new Inventario(); // inventorio do personagem
 	public int nivel_Personagem;// nivel do personagem
-	public Arma arma = new Arma("Arma Inicial","Arma básica, utilizada pelos membros da guilda", 3);
-	public Armadura armadura = new Armadura("Armadura Inicial","Armadura básica, utilizada pelos membros da guilda", 10);
+	public Arma arma;
+	public Armadura armadura;
 	public Scanner scanner;
 	
 	
@@ -32,6 +32,8 @@ public abstract class Personagem {
 		this.vidamax_Personagem = vidamax_Personagem;
 		this.inventario_Personagem = inventario_Personagem;
 		this.nivel_Personagem = nivel_Personagem;
+		this.arma = new Arma("Arma Inicial","Arma básica, utilizada pelos membros da guilda", 3);
+		this.armadura = new Armadura("Armadura Inicial","Armadura básica, utilizada pelos membros da guilda", 10); 
 	}
 	
 	public Personagem() {}
@@ -77,6 +79,8 @@ public abstract class Personagem {
 		System.out.println("Classe: "+ classe_Personagem);
 		System.out.println("Vida atual: "+ vida_Personagem);
 		System.out.println("Nivel: "+ nivel_Personagem);
+		System.out.println("Arma atual: "+arma.getNome_Item());
+		System.out.println("Armadura atual: "+armadura.getNome_Item());
 		
 	}
 		

@@ -1,6 +1,9 @@
 package Personagens;
 
 import java.util.Scanner;
+
+import SistemaInventario.Arma;
+import SistemaInventario.Armadura;
 import SistemaInventario.Inventario;
 
 public class Mago extends Personagem {
@@ -13,6 +16,8 @@ public class Mago extends Personagem {
 		this.nivel_Personagem = nivel_Personagem;
 		this.scanner = new Scanner(System.in);
 		this.classe_Personagem = "Mago";
+		this.arma = new Arma("Arma Inicial","Arma básica, utilizada pelos membros da guilda", 5);
+		this.armadura =new Armadura("Armadura Inicial","Armadura básica, utilizada pelos membros da guilda", 10);
 	}
 	
 	public void usarBolaDeFogo() {

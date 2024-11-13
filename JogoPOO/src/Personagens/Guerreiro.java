@@ -2,6 +2,8 @@ package Personagens;
 
 import java.util.Scanner;
 
+import SistemaInventario.Arma;
+import SistemaInventario.Armadura;
 import SistemaInventario.Inventario;
 
 public class Guerreiro extends Personagem{
@@ -14,6 +16,8 @@ public class Guerreiro extends Personagem{
 		this.nivel_Personagem = nivel_Personagem;
 		this.scanner = new Scanner(System.in);
 		this.classe_Personagem = "Guerreiro";
+		this.arma = new Arma("Arma Inicial","Arma básica, utilizada pelos membros da guilda", 5);
+		this.armadura =new Armadura("Armadura Inicial","Armadura básica, utilizada pelos membros da guilda", 10);
 	}
 	
 	

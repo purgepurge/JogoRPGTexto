@@ -50,12 +50,12 @@ public class Combate {
         return random.nextInt(max) + 1;
 	}
 	
-	public void causarDanojogador() {
+	public void causarDanojogador(Personagem jogador, Inimigo inimigo) {
 		inimigo.vida_Personagem -= jogador.arma.dano;
 		System.out.println("Você causou: "+jogador.arma.dano+" de dano!");
 	}
 	
-	public void causarDanoinimigo() {
+	public void causarDanoinimigo(Personagem jogador, Inimigo inimigo) {
 		jogador.vida_Personagem -= inimigo.forca_Inimigo;
 		System.out.println("O "+inimigo.nome_Personagem+" causou: "+inimigo.forca_Inimigo+" de dano!");
 	}
@@ -64,7 +64,7 @@ public class Combate {
 	public void iniciarCombate (Personagem jogador, Inimigo inimigo) {
 		System.out.println("O combate começa entre " + jogador.nome_Personagem + " e " + inimigo.nome_Personagem + "!");
 
-        while (jogador.vida_Personagem > 0 && jogador.vida_Personagem > 0) {
+        while (jogador.vida_Personagem > 0 && inimigo.vida_Personagem > 0) {
             // turno do jogador
             System.out.println("\n--- Turno de " + jogador.nome_Personagem + " ---");
             System.out.println("1. Atacar");
@@ -76,20 +76,19 @@ public class Combate {
             	int resultado = rolarDado(20);
             	if (resultado > inimigo.defesa_Inimigo) {
             		System.out.println("Você acertou o inimigo");
-            		causarDanojogador();
+            		causarDanojogador(jogador, inimigo);
             	}else {
             		System.out.println("Você erra o ataque");
             	}
-            } else if (escolha == 2) {
-            	jogador.listarMagias();
+            } else if (escolha == 2) {            	
             	if (jogador.listarMagias() ==2) {
-            		causarDanojogador();
+            		causarDanojogador(jogador,inimigo);
             		jogador.arma.dano = (1/2) * jogador.arma.dano;
             	}
             } else {
             	Pocao.beberPocao(jogador.vida_Personagem, jogador.vidamax_Personagem);
             }
-            if (jogador.vida_Personagem <= 0) {
+            if (inimigo.vida_Personagem <= 0) {
             	System.out.println(inimigo.nome_Personagem + " foi derrotado!");
             	break;
             }
@@ -99,7 +98,7 @@ public class Combate {
             int resultado = rolarDado(20);
             if (resultado > jogador.armadura.defesa) {
         		System.out.println("O Inimigo acertou o ataque");
-        		causarDanoinimigo();
+        		causarDanoinimigo(jogador, inimigo);
         	}else {
         		System.out.println("o Inimigo erra o ataque");
         	}
