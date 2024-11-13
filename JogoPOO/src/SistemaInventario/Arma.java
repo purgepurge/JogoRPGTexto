@@ -4,7 +4,7 @@ public class Arma extends Item{
 	
 	//atributos
 	
-	public int dano;
+	public int dano; //dano da arma
 	
 	//construtor
 	
@@ -25,9 +25,5 @@ public class Arma extends Item{
 	public void setDano(int dano) {
 		this.dano = dano;
 	}
-
-	
-	
-	//metodo
 
 }

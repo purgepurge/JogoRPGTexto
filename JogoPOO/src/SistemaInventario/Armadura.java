@@ -4,7 +4,7 @@ public class Armadura extends Item {
 	
 	//Atributos
 	
-	public int defesa;
+	public int defesa; //defesa da armadura
 	
 	//Construtor
 	
@@ -25,8 +25,4 @@ public class Armadura extends Item {
 	public void setDefesa(int defesa) {
 		this.defesa = defesa;
 	}
-
-	
-	//Metodos
-
 }

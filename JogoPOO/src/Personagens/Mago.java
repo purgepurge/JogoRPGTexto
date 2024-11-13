@@ -20,24 +20,23 @@ public class Mago extends Personagem {
 		this.armadura =new Armadura("Armadura Inicial","Armadura básica, utilizada pelos membros da guilda", 10);
 	}
 	
-	public void usarBolaDeFogo() {
+	public void usarBolaDeFogo() {//Magia de dano
 		arma.dano = 2*arma.dano;
 		System.out.println("Você conjura uma bola de fogo utilizando seu foco arcano e a dispara em seu alvo");
 		
 	}
 	
-	public void usarRecuperacaoArcana() {
+	public void usarRecuperacaoArcana() {//Magia de Cura
 		vida_Personagem += (1/4) * vidamax_Personagem;
 		if (vida_Personagem > vidamax_Personagem) {
 			vida_Personagem = vidamax_Personagem;
 		}
-		System.out.println("Você conjura um escudo arcano, sua vida atual: "+vida_Personagem+" e a quantidade de escudo: ");
-
+		System.out.println("Você ua magia arcana para restaurar suas feridas, sua vida atual: "+vida_Personagem);
 	}
 	
-	public int listarMagias() {
+	public int listarMagias() {//Listar magias
 		System.out.println("Lista de magias");
-		System.out.println("1 - Escudo Arcano");
+		System.out.println("1 - Recuperação Arcana");
 		System.out.println("2 - Bola de Fogo");
 		System.out.println("qual magia você quer usar?");
 		int escolhaMagia = scanner.nextInt();

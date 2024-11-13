@@ -7,7 +7,7 @@ import SistemaInventario.Armadura;
 import SistemaInventario.Inventario;
 
 public class Arqueiro extends Personagem {
-	
+	//Construtor 
 	public Arqueiro(String nome_Personagem,int vida_Personagem,int vidamax_Personagem, Inventario inventario_Personagem,int nivel_Personagem){
 		this.nome_Personagem = nome_Personagem;
 		this.vida_Personagem = vida_Personagem;
@@ -22,6 +22,7 @@ public class Arqueiro extends Personagem {
 	
 	public Arqueiro() {}
 	
+	//Metodos
 	public void usarTiroPreciso() {
 		arma.dano = 2* arma.dano;
 		System.out.println("Você puxa seu arco e concentra no ponto fraco do inimigo");

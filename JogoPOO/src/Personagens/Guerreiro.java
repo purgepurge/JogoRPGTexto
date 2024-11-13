@@ -7,7 +7,7 @@ import SistemaInventario.Armadura;
 import SistemaInventario.Inventario;
 
 public class Guerreiro extends Personagem{
-	
+	//Construtor
 	public Guerreiro(String nome_Personagem,int vida_Personagem,int vidamax_Personagem, Inventario inventario_Personagem,int nivel_Personagem){
 		this.nome_Personagem = nome_Personagem;
 		this.vida_Personagem = vida_Personagem;
@@ -20,8 +20,8 @@ public class Guerreiro extends Personagem{
 		this.armadura =new Armadura("Armadura Inicial","Armadura básica, utilizada pelos membros da guilda", 10);
 	}
 	
-	
-	public void usarRespiroDeVida() {
+	//Metodos
+	public void usarRespiroDeVida() {//Magia de cura
 		vida_Personagem += (1/4) * vidamax_Personagem;
 		if (vida_Personagem > vidamax_Personagem) {
 			vida_Personagem = vidamax_Personagem;
@@ -29,13 +29,13 @@ public class Guerreiro extends Personagem{
 		System.out.println("você respira profundamente e sente uma sensação de renovo, vida atual: "+ vida_Personagem);
 	}
 	
-	public void usarAtaqueBrutal() {
+	public void usarAtaqueBrutal() {//Magia de dano
 		arma.dano = 2*arma.dano;
 		System.out.println("você se prepara para usar ataque devastador com toda a força do seu corpo");
 		
 	}
 	
-	public int listarMagias() {
+	public int listarMagias() {//Listar magias disponiveis
 		System.out.println("Lista de magias");
 		System.out.println("1 - Respiro de Vida");
 		System.out.println("2 - Ataque Brutal");

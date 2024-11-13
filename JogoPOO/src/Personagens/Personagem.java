@@ -17,8 +17,8 @@ public abstract class Personagem {
 	public int vidamax_Personagem;//define a vida maxima do personagem
 	public Inventario inventario_Personagem = new Inventario(); // inventorio do personagem
 	public int nivel_Personagem;// nivel do personagem
-	public Arma arma;
-	public Armadura armadura;
+	public Arma arma;//Objeto que indica a arma equipada no personagem
+	public Armadura armadura;//Objeto que indica a Armadura equipada no personagem
 	public Scanner scanner;
 	
 	
@@ -85,13 +85,13 @@ public abstract class Personagem {
 	}
 		
 	
-	public static int testesAmbiente () {
+	public static int testesAmbiente () {//Metodo que serve para o personagem fazer rolagem de dados (testes de percepção, natureza, agilidade etc.)
 		int resultadoTeste = (int) (Math.random() * 20) + 1; // Gera um número entre 1 e 20
 		return resultadoTeste;
 	}
 	
 
-	public abstract int listarMagias();
+	public abstract int listarMagias();//Metodo abstrato que suas classes filhas usaram para listar magias
 
 	
 

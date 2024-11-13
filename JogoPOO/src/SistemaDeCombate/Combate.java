@@ -11,8 +11,8 @@ public class Combate {
 	
 	//Atributos
 	
-	public Personagem jogador;
-	public Inimigo inimigo;
+	public Personagem jogador;//Jogador que vai está envolvido no combate
+	public Inimigo inimigo;//Inimigo que vai está envolvido no combate
 	public Scanner scanner;
 	
 	//Construtores
@@ -45,26 +45,26 @@ public class Combate {
 	
 	//Metodos
 	
-	public int rolarDado (int max) {
+	public int rolarDado (int max) {//Rola um dado d20
 		Random random = new Random();
         return random.nextInt(max) + 1;
 	}
 	
-	public void causarDanojogador(Personagem jogador, Inimigo inimigo) {
+	public void causarDanojogador(Personagem jogador, Inimigo inimigo) {//Metodo para fazer o jogador causar dano
 		inimigo.vida_Personagem -= jogador.arma.dano;
 		System.out.println("Você causou: "+jogador.arma.dano+" de dano!");
 	}
 	
-	public void causarDanoinimigo(Personagem jogador, Inimigo inimigo) {
+	public void causarDanoinimigo(Personagem jogador, Inimigo inimigo) {//Metodo para fazer o inimigo causar dano
 		jogador.vida_Personagem -= inimigo.forca_Inimigo;
 		System.out.println("O "+inimigo.nome_Personagem+" causou: "+inimigo.forca_Inimigo+" de dano!");
 	}
 		
 	
-	public void iniciarCombate (Personagem jogador, Inimigo inimigo) {
+	public void iniciarCombate (Personagem jogador, Inimigo inimigo) {//Metodo que inicia o combate
 		System.out.println("O combate começa entre " + jogador.nome_Personagem + " e " + inimigo.nome_Personagem + "!");
 
-        while (jogador.vida_Personagem > 0 && inimigo.vida_Personagem > 0) {
+        while (jogador.vida_Personagem > 0 && inimigo.vida_Personagem > 0) {//Condição para o combate continuar acontecendo
             // turno do jogador
             System.out.println("\n--- Turno de " + jogador.nome_Personagem + " ---");
             System.out.println("1. Atacar");
@@ -74,21 +74,21 @@ public class Combate {
             int escolha = scanner.nextInt();
             if (escolha == 1) {
             	int resultado = rolarDado(20);
-            	if (resultado > inimigo.defesa_Inimigo) {
+            	if (resultado > inimigo.defesa_Inimigo) {//condição para saber se o golpe irá acertar ou errar
             		System.out.println("Você acertou o inimigo");
             		causarDanojogador(jogador, inimigo);
             	}else {
             		System.out.println("Você erra o ataque");
             	}
             } else if (escolha == 2) {            	
-            	if (jogador.listarMagias() ==2) {
+            	if (jogador.listarMagias() ==2) {//Listar as magias, caso seja uma magia ofensiva, irá causar dano
             		causarDanojogador(jogador,inimigo);
             		jogador.arma.dano = (1/2) * jogador.arma.dano;
             	}
             } else {
-            	Pocao.beberPocao(jogador.vida_Personagem, jogador.vidamax_Personagem);
+            	Pocao.beberPocao(jogador.vida_Personagem, jogador.vidamax_Personagem);//Metodo para beber uma poção
             }
-            if (inimigo.vida_Personagem <= 0) {
+            if (inimigo.vida_Personagem <= 0) {//Checar se o inimigo foi derrotado
             	System.out.println(inimigo.nome_Personagem + " foi derrotado!");
             	break;
             }
@@ -102,7 +102,7 @@ public class Combate {
         	}else {
         		System.out.println("o Inimigo erra o ataque");
         	}
-            if (jogador.vida_Personagem <= 0) {
+            if (jogador.vida_Personagem <= 0) {//Checar se o jogador foi derrotado
             	System.out.println(jogador.nome_Personagem+" foi derrotado!");
             	break;
             }

@@ -4,8 +4,8 @@ import Personagens.Personagem;
 
 public class Inimigo extends Personagem{
 	
-	public int forca_Inimigo;
-	public int defesa_Inimigo;
+	public int forca_Inimigo;//o quanto o inimigo vai causar de dano
+	public int defesa_Inimigo;//a quantidade de defesa que a rolagem de dados precisa comparar para saber se acerta ou erra
 	
 	public Inimigo(String nome_Inimigo,int vida_Inimigo,int vidamax_Inimigo, int forca_Inimigo, int defesa_Inimigo,String tipo_Inimigo) {
 		this.nome_Personagem = nome_Inimigo;

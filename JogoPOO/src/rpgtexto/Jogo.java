@@ -1,16 +1,14 @@
 package rpgtexto;
 
 import Personagens.Guerreiro;
-
 import java.util.Scanner;
-
 import Personagens.Arqueiro;
 import Personagens.Ladino;
 import Personagens.Mago;
-import Personagens.NPC;
 import Personagens.Personagem;
 import SistemaAmbiente.Taverna;
 import SistemaAmbiente.Ambiente;
+import SistemaAmbiente.CasaAlquimista;
 import SistemaDeCombate.Combate;
 import SistemaDeCombate.Inimigo;
 import SistemaInventario.Arma;
@@ -19,13 +17,7 @@ import SistemaInventario.Inventario;
 import SistemaInventario.Item;
 import SistemaInventario.Pocao;
 
-
-
-
 public class Jogo {
-	
-
-	
 	public static void main(String[] args) {
 		
 		Inventario inventario = new Inventario();
@@ -153,8 +145,87 @@ public class Jogo {
 				Inimigo bandido1 = new Inimigo ("Bandido",10,10,3,6,"Humanoide");
 				Combate combate1 = new Combate (jogador, bandido1);
 				combate1.iniciarCombate(jogador, bandido1);
+				System.out.println("O bandido cai bastante ferido, mas vivo");
+				System.out.println("1- Vá embora daqui e nunca mais tente roubar novamente, talvez o proximo não tenha misericordia");
+				System.out.println("2- Arrastar ele para fora do armazém e expor para a população");
+				int escolhaDialogo7 = scanner.nextInt();
+				scanner.nextLine();
+				if (escolhaDialogo7 == 1) {
+					System.out.println("Bandido: Obrigado pela misericordia senhor, não sei onde estava com a cabeça");
+					System.out.println("O bandido sai bastante machucado do Armazém, deixando a adaga e os pertences que tentou roubar");
+				}else {
+					System.out.println("Você arrasta o bandido para fora do armazém, o som da briga chamou atenção de algumas pessoas, você coloca o bandido no chão e explica todo o ocorrido");
+					System.out.println("Os aldeões pegam o bandido e prometem levar ele até as autoridades do vilarejo para ele receber a devida punição");
+				}
+				System.out.println("Você volta a seguir caminho até a casa do alquimista");
+			}else {
+				System.out.println("Você segue pelo beco que aparenta está calmo e deserto, quando você começa a atravessar percebe que na verdade está sendo seguido.");
+				System.out.println("Você não sabe dizer de onde veio, mas atrás de você aparece um homem mal encarado empunhando uma adaga em cada mão, logo atrás de você mais 2 homens fazem uma barreira impedindo de sair.");
+				System.out.println("Bandido: um viajante por aqui, vejo que você faz parte de uma guilda, então sempre deve viajar para missões, que tal você compartilhar um pouco desse seu ouro, ai podemos deixar você passear em paz pela cidade");
+				System.out.println("1- Não vou pagar pedágio para bandidos.");
+				System.out.println("2- Que tal fazemos o seguinte: Você me deixa passar e eu vou fingir que não vi vocês.");
+				System.out.println("3- Um inseto como você que se aproveita da situação difícil que o vilarejo está passando querendo me intimidar?");
+				int escolhaDialogo8 = scanner.nextInt();
+				scanner.nextLine();
+				if (escolhaDialogo8 == 1) {
+					System.out.println("Bandido: Tentamos fazer isso de forma civilizada, então vou tomar a força!");
+				}else if (escolhaDialogo8 == 2) {
+					System.out.println("Bandido: Uma oferta muito fraca, afinal precisamos de ouro para conseguir sobreviver por aqui, então que tal pegar a força?");
+				}else {
+					System.out.println("Bandido: huahuahua, o viajante quer dar uma de bravo, de herói, vou lhe ensinar como as coisas funcionam por aqui");
+				}
+				Inimigo bandido1 = new Inimigo("Bandido",10,10,3,6,"Humanoide");
+				Combate combate1 = new Combate (jogador, bandido1);
+				combate1.iniciarCombate(jogador, bandido1);
+				System.out.println("O brutamontes cai no chão desacordado, quando você olha para trás os que estavam impedindo a passagem sairam correndo quando viram o resultado");
+				System.out.println("Você deixa o bandido no chão desacordado mesmo e continua seu trajeto até a casa do alquimista");	
 			}
-			
+			Ambiente casadoalquimista = new CasaAlquimista();
+			casadoalquimista.exibirDescricao();
+			System.out.println("Sem levantar o olhar, ele percebe sua presença.");
+			System.out.println("Alquimista: Ah, aventureiro... seja bem-vindo. Desculpe a bagunça, como pode ver, estou... ocupado.");
+			System.out.println("Ele gesticula vagamente para a mesa, onde várias amostras de solo estão dispostas. Algumas estão cobertas por uma camada escura, quase negra, enquanto outras ainda mantêm tons esverdeados, mas todas parecem levemente estranhas, como se algo vital tivesse sido drenado delas.");
+			System.out.println("Alquimista: Você veio atrás de respostas, imagino. Eu também. Algo terrível está acontecendo com nosso bosque... Veja isto");
+			System.out.println("Ele pega uma das amostras mais escuras e a segura à luz.");
+			System.out.println("Alquimista: Esta é do coração do bosque, onde as árvores já morreram e o solo se tornou tão infértil quanto areia do deserto. As plantas que cresciam lá... estão desaparecendo, como se sugadas por uma força invisível. E quanto mais adentro no bosque, pior fica. É quase como se... algo estivesse drenando a energia vital da terra.");
+			System.out.println("Ele franze a testa e pega outra amostra, comparando-a.");
+			System.out.println("Alquimista: Curiosamente, os primeiros sinais de deterioração começaram a se intensificar perto das ruínas élficas antigas, localizadas bem no centro do bosque. Elas sempre foram cercadas de mistérios, mas agora... parecem ser o foco dessa corrupção. As amostras do solo próximas a essas ruínas são as piores que já vi.");
+			System.out.println("Ele se inclina mais perto de você, os olhos brilhando com uma mistura de preocupação e curiosidade.");
+			System.out.println("Alquimista: A verdade, aventureiro, é que estou lidando com algo além do meu entendimento. O que quer que esteja causando isso... não é natural. Não consigo detectar nenhum elemento tóxico ou substância mortal. Não... É algo mais profundo, algo... místico. Magia antiga, talvez?");
+			boolean conversaAlquimista = true;
+			while (conversaAlquimista) {
+				System.out.println("1- Essas ruínas... O que sabe sobre elas?");
+				System.out.println("2- Você mencionou magia antiga... Acha que pode ser algo relacionado à magia sombria?");
+				System.out.println("3- Se precisar, posso explorar mais o bosque e trazer informações ou amostras das ruínas.");
+				System.out.println("4- Obrigado, já sei de tudo que precisava saber");
+				int escolhaDialogo9 = scanner.nextInt();
+				scanner.nextLine();
+				switch (escolhaDialogo9) {
+                case 1:
+                    System.out.println("Alquimista: 'Pouco, infelizmente... Elas sempre foram cercadas de mistérios.'");
+                    break;
+
+                case 2:
+                    System.out.println("Alquimista: 'É uma hipótese... Mas magia sombria seria um presságio terrível.'");
+                    break;
+
+                case 3:
+                    System.out.println("Alquimista: 'Se está disposto a correr esse risco, eu agradeço. Mas cuidado... Algo sombrio ronda aquelas ruínas.'");
+                    break;
+
+                case 4:
+                    System.out.println("Alquimista: 'Se precisar de mais alguma coisa, estarei por aqui. Boa sorte, aventureiro.'");
+                    conversaAlquimista = false; // Encerra o loop
+                    break;
+
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+				}
+			}
+			System.out.println("O Alquimista lhe entrega algumas poções de cura");
+			inventario.adicionarItem(pocao);
+			inventario.exibirInventario();
+			System.out.println("Você agradece ao alquimista e o deixa continuar seus trabalhos, agora seu proximo objeto já é claro, investigar as ruinas antigas no centro do bosque!");
 		}else if (escolhaDialogo4 == 2) {
 			// 2 Ato parte B
 		}else {
