@@ -16,7 +16,7 @@ public class Ladino extends Personagem{
 		this.nivel_Personagem = nivel_Personagem;
 		this.scanner = new Scanner(System.in);
 		this.classe_Personagem = "Ladino";
-		this.arma = new Arma("Arma Inicial","Arma básica, utilizada pelos membros da guilda", 5);
+		this.arma = new Arma("Adaga Inicial","Arma básica, utilizada pelos membros da guilda", 5);
 		this.armadura =new Armadura("Armadura Inicial","Armadura básica, utilizada pelos membros da guilda", 10);
 	}
 	
