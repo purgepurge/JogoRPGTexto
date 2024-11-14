@@ -66,7 +66,7 @@ public class Combate {
 
         while (jogador.vida_Personagem > 0 && inimigo.vida_Personagem > 0) {//Condição para o combate continuar acontecendo
             // turno do jogador
-            System.out.println("\n--- Turno de " + jogador.nome_Personagem + " ---");
+            System.out.println("\n--- Turno de " + jogador.nome_Personagem +" Vida atual: "+jogador.vida_Personagem+"/"+jogador.vidamax_Personagem+" ---");
             System.out.println("1. Atacar");
             System.out.println("2. Usar Magia");
             System.out.println("3. Usar uma poção");
@@ -83,17 +83,17 @@ public class Combate {
             } else if (escolha == 2) {            	
             	if (jogador.listarMagias() ==2) {//Listar as magias, caso seja uma magia ofensiva, irá causar dano
             		causarDanojogador(jogador,inimigo);
-            		jogador.arma.dano = (1/2) * jogador.arma.dano;
+            		jogador.arma.dano = 0.5 * jogador.arma.dano;
             	}
             } else {
-            	Pocao.beberPocao(jogador.vida_Personagem, jogador.vidamax_Personagem);//Metodo para beber uma poção
+            	Pocao.beberPocao(jogador.getVida_Personagem(), jogador.vidamax_Personagem);//Metodo para beber uma poção
             }
-            if (inimigo.vida_Personagem <= 0) {//Checar se o inimigo foi derrotado
+            if (inimigo.getVida_Personagem() <= 0) {//Checar se o inimigo foi derrotado
             	System.out.println(inimigo.nome_Personagem + " foi derrotado!");
             	break;
             }
             //turno do inimigo
-            System.out.println("\n--- Turno de " + inimigo.nome_Personagem + " ---");
+            System.out.println("\n--- Turno de " + inimigo.nome_Personagem +" vida atual: "+inimigo.vida_Personagem+"/"+inimigo.vidamax_Personagem+" ---");
             System.out.println("o "+inimigo.nome_Personagem+" prepara para atacar");
             int resultado = rolarDado(20);
             if (resultado > jogador.armadura.defesa) {

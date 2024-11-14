@@ -61,7 +61,11 @@ public abstract class Personagem {
 	}
 
 	public void setVida_Personagem(int vida_Personagem) {
-		this.vida_Personagem = vida_Personagem;
+		if (vida_Personagem >= 0) {
+	        this.vida_Personagem = vida_Personagem;
+	    } else {
+	        System.out.println("A vida não pode ser negativa!");
+	    }
 	}
 
 	public Inventario getInventario_Personagem() {
@@ -71,9 +75,48 @@ public abstract class Personagem {
 	public void setInventario_Personagem(Inventario inventario_Personagem) {
 		this.inventario_Personagem = inventario_Personagem;
 	}
-	
+		
+	public int getVidamax_Personagem() {
+		return vidamax_Personagem;
+	}
+
+	public void setVidamax_Personagem(int vidamax_Personagem) {
+		this.vidamax_Personagem = vidamax_Personagem;
+	}
+
+	public int getNivel_Personagem() {
+		return nivel_Personagem;
+	}
+
+	public void setNivel_Personagem(int nivel_Personagem) {
+		this.nivel_Personagem = nivel_Personagem;
+	}
+
+	public Arma getArma() {
+		return arma;
+	}
+
+	public void setArma(Arma arma) {
+		this.arma = arma;
+	}
+
+	public Armadura getArmadura() {
+		return armadura;
+	}
+
+	public void setArmadura(Armadura armadura) {
+		this.armadura = armadura;
+	}
+
+	public Scanner getScanner() {
+		return scanner;
+	}
+
+	public void setScanner(Scanner scanner) {
+		this.scanner = scanner;
+	}
+
 	//metodos
-	
 	public void exibirStatus() { //metodo que mostra informações do personagem
 		System.out.println("Nome: "+ nome_Personagem);
 		System.out.println("Classe: "+ classe_Personagem);
