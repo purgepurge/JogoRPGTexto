@@ -218,20 +218,16 @@ public class Jogo {
                 case 1:
                     System.out.println("Alquimista: Pouco, infelizmente... Elas sempre foram cercadas de mistérios.\n");
                     break;
-
                 case 2:
                     System.out.println("Alquimista: É uma hipótese... Mas magia sombria seria um presságio terrível.\n");
                     break;
-
                 case 3:
                     System.out.println("Alquimista: Se está disposto a correr esse risco, eu agradeço. Mas cuidado... Algo sombrio ronda aquelas ruínas.\n");
                     break;
-
                 case 4:
                     System.out.println("Alquimista: Se precisar de mais alguma coisa, estarei por aqui. Boa sorte, aventureiro.\n");
                     conversaAlquimista = false; // Encerra o loop
                     break;
-
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
 				}
@@ -253,6 +249,7 @@ public class Jogo {
 				arma2 = new Arma("Adaga +1","Sua Adaga agora com metal reforçado",6);
 			}
 			Armadura armadura2 = new Armadura("Armadura +1","Sua Antiga armadura agora com material reforçado",11);
+			//Equipando a nova arma e armadura.
 			jogador.equiparArma(arma2);
 			jogador.equiparArmadura(armadura2);
 			jogador.exibirStatus();
@@ -267,6 +264,9 @@ public class Jogo {
 			System.out.println("Você segue seu caminho, mas algo permanece dentro de você—a pergunta silenciosa do \"E se?\".");
 			System.out.println("--------------Final C - Caminho do Exilio -------------- ");
 		}
+		System.out.println("-----------------Obrigado por jogar!, esse jogo é apenas um projeto educativo------------------");
+		System.out.println("------------------Feito para a Disciplina de Programação Orientada a Objeto--------------------");
+		System.out.println("-----------------------Do curso de Análise e Desenvolvimento de Sistemas-----------------------");
 		scanner.close();
 	}
 }
