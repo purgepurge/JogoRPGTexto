@@ -27,7 +27,7 @@ public class Mago extends Personagem {
 	}
 	
 	public void usarRecuperacaoArcana() {//Magia de Cura
-		vida_Personagem += (1/4) * vidamax_Personagem;
+		vida_Personagem += 0.25 * vidamax_Personagem;
 		if (vida_Personagem > vidamax_Personagem) {
 			vida_Personagem = vidamax_Personagem;
 		}

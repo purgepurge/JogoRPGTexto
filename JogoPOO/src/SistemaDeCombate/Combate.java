@@ -51,12 +51,12 @@ public class Combate {
 	}
 	
 	public void causarDanojogador(Personagem jogador, Inimigo inimigo) {//Metodo para fazer o jogador causar dano
-		inimigo.vida_Personagem -= jogador.getArma().dano;
+		inimigo.setVida_Personagem(inimigo.getVida_Personagem() - jogador.getArma().dano);
 		System.out.println("Você causou: "+jogador.getArma().dano+" de dano!");
 	}
 	
 	public void causarDanoinimigo(Personagem jogador, Inimigo inimigo) {//Metodo para fazer o inimigo causar dano
-		jogador.vida_Personagem -= inimigo.getForca_Inimigo();
+		jogador.setVida_Personagem(jogador.getVida_Personagem() - inimigo.getForca_Inimigo());
 		System.out.println("O "+inimigo.getNome_Personagem()+" causou: "+inimigo.getForca_Inimigo()+" de dano!");
 	}
 		
@@ -64,9 +64,9 @@ public class Combate {
 	public void iniciarCombate (Personagem jogador, Inimigo inimigo) {//Metodo que inicia o combate
 		System.out.println("O combate começa entre " + jogador.getNome_Personagem() + " e " + inimigo.getNome_Personagem() + "!");
 
-        while (jogador.vida_Personagem > 0 && inimigo.vida_Personagem > 0) {//Condição para o combate continuar acontecendo
+        while (jogador.getVida_Personagem() > 0 && inimigo.getVida_Personagem() > 0) {//Condição para o combate continuar acontecendo
             // turno do jogador
-            System.out.println("\n--- Turno de " + jogador.getNome_Personagem() +" Vida atual: "+jogador.vida_Personagem+"/"+jogador.getVidamax_Personagem()+" ---");
+            System.out.println("\n--- Turno de " + jogador.getNome_Personagem() +" Vida atual: "+jogador.getVida_Personagem()+"/"+jogador.getVidamax_Personagem()+" ---");
             System.out.println("1. Atacar");
             System.out.println("2. Usar Magia");
             System.out.println("3. Usar uma poção");
@@ -93,7 +93,7 @@ public class Combate {
             	break;
             }
             //turno do inimigo
-            System.out.println("\n--- Turno de " + inimigo.getNome_Personagem() +" vida atual: "+inimigo.vida_Personagem+"/"+inimigo.getVidamax_Personagem()+" ---");
+            System.out.println("\n--- Turno de " + inimigo.getNome_Personagem() +" vida atual: "+inimigo.getVida_Personagem()+"/"+inimigo.getVidamax_Personagem()+" ---");
             System.out.println("o "+inimigo.getNome_Personagem()+" prepara para atacar");
             int resultado = rolarDado(20);
             if (resultado > jogador.getArmadura().defesa) {
@@ -102,7 +102,7 @@ public class Combate {
         	}else {
         		System.out.println("o Inimigo erra o ataque");
         	}
-            if (jogador.vida_Personagem <= 0) {//Checar se o jogador foi derrotado
+            if (jogador.getVida_Personagem() <= 0) {//Checar se o jogador foi derrotado
             	System.out.println(jogador.getNome_Personagem()+" foi derrotado!");
             	break;
             }

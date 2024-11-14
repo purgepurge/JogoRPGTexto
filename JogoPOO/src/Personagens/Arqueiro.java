@@ -30,7 +30,7 @@ public class Arqueiro extends Personagem {
 	} 
 	
 	public void usarPrimeirosSocorros() {
-		vida_Personagem += (1/4) * vida_Personagem;
+		vida_Personagem += 0.25 * vida_Personagem;
 		if (vida_Personagem > vidamax_Personagem) {
 			vida_Personagem = vidamax_Personagem;
 		}

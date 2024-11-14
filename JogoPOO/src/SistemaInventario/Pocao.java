@@ -29,7 +29,7 @@ public class Pocao extends Item{
 	
 	//metodos
 	
-	public static void beberPocao(int vida_Personagem, int vidamax_Personagem) {
+	public static void beberPocao(double vida_Personagem, double vidamax_Personagem) {
 		vida_Personagem += restauracao_Pocao;
 		if (vida_Personagem > vidamax_Personagem) {
 			vida_Personagem = vidamax_Personagem;

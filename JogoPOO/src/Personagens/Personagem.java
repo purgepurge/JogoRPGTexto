@@ -13,8 +13,8 @@ public abstract class Personagem {
 	
 	protected String nome_Personagem; //define o nome do personagem
 	protected String classe_Personagem;//define a classe do personagem
-	public int vida_Personagem;//define a vida do personagem
-	protected int vidamax_Personagem;//define a vida maxima do personagem
+	protected double vida_Personagem;//define a vida do personagem
+	protected double vidamax_Personagem;//define a vida maxima do personagem
 	protected Inventario inventario_Personagem = new Inventario(); // inventorio do personagem
 	protected int nivel_Personagem;// nivel do personagem
 	protected Arma arma;//Objeto que indica a arma equipada no personagem
@@ -56,16 +56,12 @@ public abstract class Personagem {
 		this.classe_Personagem = classe_Personagem;
 	}
 
-	public int getVida_Personagem() {
+	public double getVida_Personagem() {
 		return vida_Personagem;
 	}
 
-	public void setVida_Personagem(int vida_Personagem) {
-		if (vida_Personagem >= 0) {
-	        this.vida_Personagem = vida_Personagem;
-	    } else {
-	        System.out.println("A vida não pode ser negativa!");
-	    }
+	public void setVida_Personagem(double vida_Personagem) {
+	    this.vida_Personagem = vida_Personagem;
 	}
 
 	public Inventario getInventario_Personagem() {
@@ -76,7 +72,7 @@ public abstract class Personagem {
 		this.inventario_Personagem = inventario_Personagem;
 	}
 		
-	public int getVidamax_Personagem() {
+	public double getVidamax_Personagem() {
 		return vidamax_Personagem;
 	}
 
