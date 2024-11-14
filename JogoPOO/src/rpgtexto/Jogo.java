@@ -14,7 +14,6 @@ import SistemaDeCombate.Inimigo;
 import SistemaInventario.Arma;
 import SistemaInventario.Armadura;
 import SistemaInventario.Inventario;
-import SistemaInventario.Item;
 import SistemaInventario.Pocao;
 
 public class Jogo {
@@ -96,11 +95,14 @@ public class Jogo {
 			System.out.println("Taberneiro: então eu te peço, leve esta mensagem para seus superiores, ou se possível fique um pouco e nos ajude, o vilarejo está mal das pernas, mas podemos pagar se \njuntamos os restos das nossas economias\n");
 		}
 		System.out.println("Taberneiro: a 1 mês atrás uma terrível maldição assolou essa região, tudo que plantamos no solo acabou morrendo, até o próprio bosque que deu nome a esse vilarejo está\naos poucos definhando, por conta disso só temos o que sobrou da ultima colheita nos armazéns, em algumas semanas precisaremos começar a racionar antes da chegada do\ninverno e ainda tenho minhas duvidas se conseguiremos ter o suficiente para todo o inverno.\n");
-		if (Personagem.testesAmbiente() >= 10) {
-			System.out.println("você passou no teste de natureza!\n");
+		System.out.println("-----Teste de Natureza!-----");
+		int resultadoTeste1 = Personagem.testesAmbiente();
+		if (resultadoTeste1 >= 10) {
+			System.out.println("você passou no teste de natureza! "+resultadoTeste1+"/10\n");
 			System.out.println("o inverno esse ano está previsto para começar no próximo mês, ao que tudo indica será um bem rigoroso já que no ano passado foi um inverno muito rápido\n");
-		} else { System.out.println("Você falhou no teste de natureza\n");}
-		
+		} else { 
+			System.out.println("Você falhou no teste de natureza! "+resultadoTeste1+"10\n");
+		}
 		System.out.println("Taberneiro: Alguns druidas chegaram semana passada, mas eles só nos ignoram, não nos dão nenhuma informação, temos um alquimista no vilarejo que pegou amostra dos solos,\nmas até então nada novo, ele mora na parte norte do vilarejo, lhe peço novamente que nos ajude\n");
 		System.out.println("1- Ajudarei, assim que amanhecer, pois esta hora da noite não é sábio andar nesses bosques e provavelmente o alquimista deve estar descansando.");
 		System.out.println("2- Infelizmente não posso fazer nada, mas levarei a mensagem a meus superiores");
@@ -123,11 +125,13 @@ public class Jogo {
 		if (escolhaDialogo4 == 1) {
 			// 2 Ato parte A
 			System.out.println("você se dirige até a parte norte do vilarejo para se encontra com o alquimista, seguindo as direções do Taberneiro, com o clima pesado do dia você nota que o vilarejo\nestá transmitindo um baixo astral, mas quando os aldeões notam que você é um aventureiro alguns conseguem demostrar um pouco de esperança.\n");
-			if (Personagem.testesAmbiente() > 10) {
-				System.out.println("Você passou no teste de percepção\n");
+			System.out.println("-----Teste de Percepção dificuldade 10!/n");
+			int resultadoTeste2 = Personagem.testesAmbiente();
+			if (resultadoTeste2 >= 10) {
+				System.out.println("Você passou no teste de percepção!"+resultadoTeste2+"/10\n");
 				System.out.println("porém você também percebeu que alguns aldeões estão te encarando de forma estranha e sussurrando entre si e eles não aparentam ter uma boa intenção.\n");
 			}else {
-				System.out.println("Você falhou no teste de percepção\n");
+				System.out.println("Você falhou no teste de percepção!"+resultadoTeste2+"/10\n");
 			}
 			System.out.println("você tem 2 opções de caminho, pode ir pela praça principal que é o caminho mais longo, ou pode tentar ir pelo beco entre 2 casas para cortar caminho\n");
 			System.out.println("1- Ir pela praça central");
@@ -153,7 +157,7 @@ public class Jogo {
 				Inimigo bandido1 = new Inimigo ("Bandido",20,20,3,6,"Humanoide");
 				Combate combate1 = new Combate (jogador, bandido1);
 				combate1.iniciarCombate(jogador, bandido1);
-				if (jogador.vida_Personagem <=0) {System.out.println("--------------------Gamer Over--------------------");}
+				if (jogador.getVida_Personagem() <=0) {System.out.println("--------------------Gamer Over--------------------");}
 				System.out.println("\nO bandido cai bastante ferido, mas vivo\n");
 				System.out.println("1- Vá embora daqui e nunca mais tente roubar novamente, talvez o proximo não tenha misericordia");
 				System.out.println("2- Arrastar ele para fora do armazém e expor para a população");
@@ -186,7 +190,7 @@ public class Jogo {
 				Inimigo bandido1 = new Inimigo("Bandido",20,20,3,6,"Humanoide");
 				Combate combate1 = new Combate (jogador, bandido1);
 				combate1.iniciarCombate(jogador, bandido1);
-				if (jogador.vida_Personagem <=0) {System.out.println("--------------------Gamer Over--------------------");}
+				if (jogador.getVida_Personagem() <=0) {System.out.println("--------------------Gamer Over--------------------");}
 				System.out.println("\nO brutamontes cai no chão desacordado, quando você olha para trás os que estavam impedindo a passagem sairam correndo quando viram o resultado\n");
 				System.out.println("Você deixa o bandido no chão desacordado mesmo e continua seu trajeto até a casa do alquimista\n");	
 			}
@@ -194,14 +198,14 @@ public class Jogo {
 			casadoalquimista.exibirDescricao();
 			System.out.println("Sem levantar o olhar, ele percebe sua presença.\n");
 			System.out.println("Alquimista: Ah, aventureiro... seja bem-vindo. Desculpe a bagunça, como pode ver, estou... ocupado.\n");
-			System.out.println("Ele gesticula vagamente para a mesa, onde várias amostras de solo estão dispostas. Algumas estão cobertas por uma camada escura, quase negra, enquanto outras ainda\n\nmantêm tons esverdeados, mas todas parecem levemente estranhas, como se algo vital tivesse sido drenado delas.\n");
+			System.out.println("Ele gesticula vagamente para a mesa, onde várias amostras de solo estão dispostas. Algumas estão cobertas por uma camada escura, quase negra, enquanto outras ainda\nmantêm tons esverdeados, mas todas parecem levemente estranhas, como se algo vital tivesse sido drenado delas.\n");
 			System.out.println("Alquimista: Você veio atrás de respostas, imagino. Eu também. Algo terrível está acontecendo com nosso bosque... Veja isto\n");
 			System.out.println("Ele pega uma das amostras mais escuras e a segura à luz.\n");
 			System.out.println("Alquimista: Esta é do coração do bosque, onde as árvores já morreram e o solo se tornou tão infértil quanto areia do deserto. As plantas que cresciam lá...\n\nestão desaparecendo, como se sugadas por uma força invisível. E quanto mais adentro no bosque, pior fica. É quase como se... algo estivesse drenando a energia vital da terra.\n");
 			System.out.println("Ele franze a testa e pega outra amostra, comparando-a.\n");
-			System.out.println("Alquimista: Curiosamente, os primeiros sinais de deterioração começaram a se intensificar perto das ruínas élficas antigas, localizadas bem no centro do bosque.\n\nElas sempre foram cercadas de mistérios, mas agora... parecem ser o foco dessa corrupção. As amostras do solo próximas a essas ruínas são as piores que já vi.\n");
+			System.out.println("Alquimista: Curiosamente, os primeiros sinais de deterioração começaram a se intensificar perto das ruínas élficas antigas, localizadas bem no centro do bosque,\nelas sempre foram cercadas de mistérios, mas agora... parecem ser o foco dessa corrupção. As amostras do solo próximas a essas ruínas são as piores que já vi.\n");
 			System.out.println("Ele se inclina mais perto de você, os olhos brilhando com uma mistura de preocupação e curiosidade.\n");
-			System.out.println("Alquimista: A verdade, aventureiro, é que estou lidando com algo além do meu entendimento. O que quer que esteja causando isso... não é natural. Não consigo detectar\n\nnenhum elemento tóxico ou substância mortal. Não... É algo mais profundo, algo... místico. Magia antiga, talvez?\n");
+			System.out.println("Alquimista: A verdade, aventureiro, é que estou lidando com algo além do meu entendimento. O que quer que esteja causando isso... não é natural. Não consigo detectar\nnenhum elemento tóxico ou substância mortal. Não... É algo mais profundo, algo... místico. Magia antiga, talvez?\n");
 			boolean conversaAlquimista = true;
 			while (conversaAlquimista) {
 				System.out.println("1- Essas ruínas... O que sabe sobre elas?");
@@ -235,7 +239,24 @@ public class Jogo {
 			System.out.println("O Alquimista lhe entrega algumas poções de cura.\n");
 			inventario.adicionarItem(pocao);
 			inventario.exibirInventario();
-			System.out.println("Você agradece ao alquimista e o deixa continuar seus trabalhos, agora seu proximo objetivo já é claro, investigar as ruinas antigas no centro do bosque!\n");
+			System.out.println("\nComo provavelemente algo muito sombrio está lhe esperando naquelas ruinas você vai precisar disso mais do que eu\n");
+			System.out.println("O Alquimista lhe entrega um tipo especial de runa\n");
+			System.out.println("Alquimista: Passe ela na sua arma e armadura, que ela deixara o material mais resistente para enfretar os desafios que viram\n");
+			Arma arma2;
+			if (jogador.getClasse_Personagem().equals("Guerreiro")) {
+				arma2 = new Arma("Claymore +1", "Sua antiga Claymore agora com metal reforçado",6);
+			}else if (jogador.getClasse_Personagem().equals("Arqueiro")) {
+				arma2 = new Arma("Arco +1","Seu Arco agora com madeira reforçada",6);
+			}else if (jogador.getClasse_Personagem().equals("Mago")) {
+				arma2 = new Arma("Foco Arcano +1","Seu Foco Arcano agora com mais mana",6);
+			}else {
+				arma2 = new Arma("Adaga +1","Sua Adaga agora com metal reforçado",6);
+			}
+			Armadura armadura2 = new Armadura("Armadura +1","Sua Antiga armadura agora com material reforçado",11);
+			jogador.equiparArma(arma2);
+			jogador.equiparArmadura(armadura2);
+			jogador.exibirStatus();
+			System.out.println("\nVocê agradece ao alquimista e o deixa continuar seus trabalhos, agora seu proximo objetivo já é claro, investigar as ruinas antigas no centro do bosque!\n");
 		}else if (escolhaDialogo4 == 2) {
 			// 2 Ato parte B
 		}else {
@@ -246,5 +267,6 @@ public class Jogo {
 			System.out.println("Você segue seu caminho, mas algo permanece dentro de você—a pergunta silenciosa do \"E se?\".");
 			System.out.println("--------------Final C - Caminho do Exilio -------------- ");
 		}
+		scanner.close();
 	}
 }

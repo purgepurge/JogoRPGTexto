@@ -11,15 +11,15 @@ public abstract class Personagem {
 	
 	//atributos
 	
-	public String nome_Personagem; //define o nome do personagem
-	public String classe_Personagem;//define a classe do personagem
+	protected String nome_Personagem; //define o nome do personagem
+	protected String classe_Personagem;//define a classe do personagem
 	public int vida_Personagem;//define a vida do personagem
-	public int vidamax_Personagem;//define a vida maxima do personagem
-	public Inventario inventario_Personagem = new Inventario(); // inventorio do personagem
-	public int nivel_Personagem;// nivel do personagem
-	public Arma arma;//Objeto que indica a arma equipada no personagem
-	public Armadura armadura;//Objeto que indica a Armadura equipada no personagem
-	public Scanner scanner;
+	protected int vidamax_Personagem;//define a vida maxima do personagem
+	protected Inventario inventario_Personagem = new Inventario(); // inventorio do personagem
+	protected int nivel_Personagem;// nivel do personagem
+	protected Arma arma;//Objeto que indica a arma equipada no personagem
+	protected Armadura armadura;//Objeto que indica a Armadura equipada no personagem
+	protected Scanner scanner;
 	
 	
 	
@@ -96,7 +96,7 @@ public abstract class Personagem {
 		return arma;
 	}
 
-	public void setArma(Arma arma) {
+	public void equiparArma(Arma arma) {
 		this.arma = arma;
 	}
 
@@ -104,7 +104,7 @@ public abstract class Personagem {
 		return armadura;
 	}
 
-	public void setArmadura(Armadura armadura) {
+	public void equiparArmadura(Armadura armadura) {
 		this.armadura = armadura;
 	}
 

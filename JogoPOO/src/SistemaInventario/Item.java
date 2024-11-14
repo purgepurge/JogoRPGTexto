@@ -2,8 +2,8 @@ package SistemaInventario;
 
 public abstract class Item {
 	//atributos
-	public String nome_Item;
-	public String descricao_Item;
+	protected String nome_Item;
+	protected String descricao_Item;
 	
 	//construtor
 	
